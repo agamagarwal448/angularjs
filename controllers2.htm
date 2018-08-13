@@ -1,0 +1,35 @@
+<DOCTYPE html>
+<html>
+<title>angularjs contro</title>
+<script src="./angular.min.js">
+</script>
+
+<body>
+   <div ng-app="myapp" >
+         <div ng-controller="mycontroller";>
+            <pre>
+               {{a}}    <!-- interpolation -->
+               {{b}}    <!-- one way data binding -->
+         	   </pre>
+         </div>	 
+
+         <div ng-controller="qshore";>
+            <pre>
+               {{a}}    <!-- interpolation -->
+               {{b}}    <!-- one way data binding -->
+             </pre>
+         </div> 
+   </div>
+           <script type="text/javascript">
+              var app=angular.module('myapp',[]);
+              app.controller('mycontroller',function($scope){
+               $scope.a=22;
+               $scope.b='qshore';
+              });
+              app.controller('qshore',function($scope){
+               $scope.a=225;
+               $scope.b='angularjs';
+              });
+           </script>
+</body>
+</html>

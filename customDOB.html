@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DIrectives</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+		<input type="text" name="fullname" ng-model="fullname">
+		<input type="date" name="DOB" ng-model="DOB"  ng-change="calculate_age()">
+		<qshore msg={{fullname}}></qshore>
+</div>
+    <script type="text/javascript">
+    	var app=angular.module('myApp',[]);
+    	app.controller('myController',function($scope){
+    		$scope.fullname='Agam Agarwal';
+    		function calculate_age(birth_month,birth_day,birth_year)
+{ today_date = new Date(); 
+today_year = today_date.getYear(); 
+today_month = today_date.getMonth(); 
+today_day = today_date.getDate(); 
+age = (today_year + 1900) - birth_year;
+if ( today_month < (birth_month - 1)) 
+{ age--; } if (((birth_month - 1) == today_month) && (today_day < birth_day)) 
+{ age--; } 
+if (age > 1900) 
+{ age -= 1900; } 
+return age;}
+    	});
+
+    	 app.directive('qshore',function(){
+    	 	return {
+    	 		link:function(scp,ele,attr) {
+    	 		ele.append('<p>HELLO::'+scp.fullname+'</p>');
+
+    	 	    }
+    	  }
+    	 });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Directives</title>
+<script src="./angular.min.js">
+</script>
+</head>
+<body>
+	<pre>
+	<div ng-app="myApp" ng-controller="myController">
+		
+             
+          <qshore msg="hellossdfsd" firstname="{{fname}}"></qshore>
+          <input type="text" name="fname" ng-model="fname">
+              
+	</div>
+</pre>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+		app.controller('myController',function($scope){
+			$scope.fname="qshore";
+		});
+		app.directive('qshore',function(){
+		return{
+				 template:'<h1> custom directive {{msg}} --{{firstname}} </h1>',
+				 
+				 scope:{msg:'@',firstname:'@'}
+            }
+		});
+	</script>
+</body>
+</html>	

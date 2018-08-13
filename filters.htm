@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Directive</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+
+<body>
+	 
+	 <div ng-app="myapp" ng-controller="mycontroller">
+<pre>
+     {{fname|uppercase}}
+     {{fname|lowercase}}
+
+     {{age}}
+     {{age | number}}
+   **{{fname | number}}
+
+     {{age | currency}};
+     {{age | currency:'&#x20B9;'}};
+
+     {{today}}
+     {{today| date}}
+     {{today| date:'dd-MM-yy'}}
+
+     <input type="text" name="fruits" ng-model="fruitsearch">
+
+    <ol>
+     	<!--<li ng-repeat="x in fruits|filter:'ap'">{{x}}</li>-->
+     	<li ng-repeat="x in fruits|filter: fruitsearch ">{{x}}</li>
+     </ol>
+</pre>
+   <select ng-model="orderchoice">
+   	<option>select order</option>
+   	<option>name</option>
+   	<option>country</option>
+   </select>
+    <table border="1px">
+   	      <!--<tr ng-repeat="user in users|orderBy:'country'">-->
+   	      	<tr ng-repeat="user in users|orderBy:orderchoice">
+   		    <td> {{user.name}}</td>
+   		    <td>{{user.country}}</td>
+   	      </tr>
+      </table>
+   </div>
+
+
+
+	<script type="text/javascript">
+		var app=angular.module('myapp',[]);
+		app.controller('mycontroller',function($scope){
+			$scope.fname="Qshore";
+			$scope.age=34;
+			$scope.today= new Date();
+			$scope.fruits=['apple','banana','apricot','dates','sapota','blueberries','melon','pomegrante','mango'];
+			$scope.users=[
+			    {name:'qshore', country:'india'},
+				{name:'mahesh', country:'austrlia'},
+				{name:'ramesh', country:'uganda'},
+				{name:'suresh', country:'libya'},
+				{name:'rakesh', country:'madagascar'},
+				{name:'lokesh', country:'maldives'},
+				{name:'rajesh', country:'krykzistan'},
+				{name:'naresh', country:'nepal'},
+				{name:'hari', country:'bhutan'},
+				{name:'hareesh', country:'mynamar'},
+				{name:'bhupesh', country:'china'},
+				{name:'satish', country:'tuvalu'},
+				{name:'sukesh', country:'venice'},
+				{name:'angular', country:'sri lanka'},
+			];
+		});
+	</script>
+	</body>
+	</html>

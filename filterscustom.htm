@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>filterscustom</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+ <div ng-app="myApp" ng-controller="myctrl">
+ 	<pre>
+ 	<input type="number" name="age" ng-model="age">
+ 	   {{age}}
+ 	   {{age|hexa}}
+ 	   {{14|hexa}}
+ 	   {{13|hexa}}
+ 	   {{2|parmas:2:3:4}}
+ 	</pre>
+
+
+ </div>
+ <script type="text/javascript">
+ 	var app=angular.module('myApp',[]);
+ 	
+ 	app.controller('myctrl',function($scope){
+ 		$scope.fname="mahesh";
+ 		$scope.age=15;
+ 	});
+
+ 	app.filter('hexa',function(){
+ 		return function(x){
+ 			return x.toString(16);
+ 		}
+ 	});
+
+ 	app.filter('parmas',function(){
+ 		return function(inp,p1,p2,p3){
+ 			var res=inp*(p1+p2+p3);
+ 			return res;
+ 		}
+ 	});
+
+ </script>	
+</body>
+</html>

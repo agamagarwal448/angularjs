@@ -1,0 +1,62 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>angular events</title>
+<script src="./angular.min.js">
+</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+		<pre>
+      <form method="GET" name="f">
+      	<!--<input type="text" name="fname" ng-model="fname" placeholder="enter first name" required minlength="5">-->
+
+      	<input type="text" name="fname" ng-model="fname" placeholder="First Name"  ng-maxlength="10">
+      	<p ng-if="f.$submitted && f.fname.$error.maxlength"> maximum 10 characters </p>
+
+      	<!--<p style="color: red;" ng-if="!f.fname.$valid"> Please enter a valid input </p>-->
+      	<!--<p style="color: red;" ng-if="f.fname.$dirty && !f.fname.$valid"> Please enter a valid input </p>-->
+      	<!--<p style="color: red;" ng-if="f.fname.$touched && !f.fname.$valid"> Please enter a valid input </p>-->
+      	 <!--<p  style="color: red;" ng-if="f.fname.$dirty && f.fname.$error.required">  this is mandatroy field</p>-->
+      	<!-- <p  style="color: red;" ng-show="f.fname.$dirty && f.fname.$error.minlength">  please enter min 5 characters</p> -->
+
+      	<input type="text" name="lname" ng-model="lname" placeholder="enter last name" >
+
+      	<input type="submit" value="submit">
+
+      </form>
+
+         form states
+			f.$valid :: {{f.$valid}}
+			f.$invalid :: {{f.$invalid}}
+			f.$dirty :: {{f.$dirty}}
+			f.$pristine :: {{f.$pristine}}
+			f.$submitted :: {{f.$submitted}}
+
+
+            form field states:
+
+          f.fname.valid :: {{f.fname.$valid}}
+          f.fname.invalid :: {{f.fname.$invalid}}
+          f.fname.dirty :: {{f.fname.$dirty}}
+          f.fname.pristine :: {{f.fname.$pristine}}
+          f.fname.touched :: {{f.fname.$touched}}
+          f.fname.untouched :: {{f.fname.$untouched}}
+          f.fname.errror.required :: {{f.fname.$error.required}}
+          f.fname.errror.minlength :: {{f.fname.$error.minlength}}
+
+
+  </pre>
+
+
+	</div>
+
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myController',function($scope){
+			$scope.fname="qshore"
+			$scope.lname=""
+		});
+   </script>
+</body>
+</html>

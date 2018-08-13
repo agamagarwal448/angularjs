@@ -1,0 +1,73 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>angular events</title>
+<script src="./angular.min.js">
+</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+		<pre>
+      <form method="GET" name="f" >
+      	      <input type="text" name="name" ng-model="name" placeholder="enter name" required ng-minlength="5" ng-maxlength="15">
+      	      <span  style="color: red;" ng-show="f.name.$dirty && f.name.$invalid"> plzz enter valid name</span>
+      	      <span ng-show="f.$submitted && f.name.$error.required"> this is mandatory field </span>
+      	
+      	      <input type="password" name="password" ng-model="password" placeholder="enter password" required ng-minlength="7" ng-maxlength="15">
+      	      <p  style="color: red;" ng-show="f.password.$dirty && f.password.$invalid"></p>
+      	      <p ng-show="f.$submitted && f.password.$error.required"> maximum 12 characters </p>
+                
+                <input type="radio" name="radio" ng-model="radio" value="MALE"> MALE
+                <input type="radio" name="radio" ng-model="radio1" value="FEMALE"> FEMALE
+                
+                <input type="checkbox" name="checkbox" ng-model="checkbox" > I have a car
+                <input type="checkbox" name="checkbox" ng-model="checkbox1" > I have a bike
+
+      	       <input type="email" name="email" ng-model="email" placeholder="email" required ng-minlength="10" ng-maxlength="25">
+      	       <p ng-show="f.email.$dirty && f.name.$error.minlength">enter 5 input</p>
+      	       <p ng-show="f.$submitted && f.email.$error.maxlength">max 25 input</p>
+
+               <input type="tel" name="number" ng-model="number" placeholder="ph.no." pattern="[6789][0-9]{9}" required>
+               <p ng-show="f.number.$dirty && !f.number.$valid">enter 10 digitss</p>
+               <p ng-show="f.$submitted && f.number.$error.required">this is mandatory</p>
+      	      
+               <input type="date" name="date" ng-model="date" placeholder="enter date" required min="2018-01-01" max="2018-04-13">
+               <P ng-show="f.date.$dirty && !f.date.$valid">enter correct date</P>
+               <p ng-show="f.$submitted && f.date.$error.required">this is mandatory</p>
+
+      	       <input type="week" name="week" ng-model="week" required >
+                 <p ng-show="f.$submitted && f.week.$error.required">this is mandatory</p>
+
+      	       <input type="time" name="time" >
+
+               <input type="color" name="color" >
+
+      	       <input type="month" name="month" >
+
+      	       points:<input type="range" name="range" min="0" max="10" required>
+
+      	       <input type="search" name="search" placeholder="search">
+      
+               <button ng-disabled="f.password.$dirty && f.password.$invalid" formnovalidate ng-click="submit() ">submit</button>
+  </pre>
+</div>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('myController',function($scope){
+			$scope.name
+			$scope.password
+			$scope.radio
+			$scope.checkbox
+			$scope.email
+			$scope.number
+			$scope.date
+			$scope.week
+			$scope.time;
+			$scope.color;
+			$scope.month;
+			$scope.range;
+			$scope.search;
+});
+   </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>services</title>
+	<script type="text/javascript" src="./angular.min.js">
+	</script>
+</head>
+<body>
+	<div ng-app="myApp" >
+      <div ng-controller="myController">
+			<pre>
+				{{fname}}
+				{{age}}
+				{{lname}}
+				{{today}}
+			</pre>
+		</div>
+		#################################################
+		<pre>
+			**{{fname}}
+			**{{age}}
+			{{lname}}
+		</pre>
+		#############################################
+		<div ng-controller="qshore">
+			<pre>
+				{{fname}}
+				{{age}}
+				{{lname}}
+			</pre>
+		</div>
+		++{{lname}}
+	</div>
+	**{{lname}}
+
+ <script type="text/javascript">
+ 	 var app=angular.module('myApp',[]);
+ 	 app.controller('myController',function($scope,$rootScope,$timeout,$interval,$location,tech){
+ 	 	    $scope.fname = 'qshore';
+			$scope.age = 34;
+			$rootScope.lname = 'tech';
+			$scope.today = new Date();
+
+			$timeout(function() {
+				$scope.fname="qshore technologies"
+				$scope.age = 4647;
+             	}, 3000);
+         
+ 	         $interval(function(){
+ 	         	$scope.today= new Date(); 
+ 	         },1000);
+            
+             console.log('absUrl ::'+ $location.absUrl());
+             console.log('url ::'+$location.url());
+             console.log('protocol ::'+$location.protocol());
+             console.log('host :: ' + $location.host());
+			console.log('port :: ' + $location.port());
+
+			console.log(tech.hexa(15));
+			console.log(tech.fruits());
+
+
+ 	     });
+ 	 app.controller('qshore', function($scope){
+			$scope.fname = 'angular';
+			$scope.age = 20;
+		})
+ 	 app.service('tech',function(){
+ 	 	 this.hexa=function(x){
+ 	 	 	    return x.toString(16);
+ 	 	 }
+ 	 	 this.fruits=function(){
+ 	 	 	return ['kiwi','orange','melon'];
+ 	 	 }
+ 	 });
+</script>
+</body>
+</html>

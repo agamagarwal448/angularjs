@@ -1,0 +1,38 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Directives</title>
+<script src="./angular.min.js">
+</script>
+</head>
+<body>
+	<pre>
+	<div ng-app="myApp" ng-controller="myController">
+		{{fname}}
+              ''<div qshore></div>
+              **<qshore></qshore>
+              **<div class="qshore"> </div>
+              <!-- directive: qshore -->
+	</div>
+</pre>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+		app.controller('myController',function($scope){
+			$scope.fname="qshore";
+		});
+		app.directive('qshore',function(){
+			/*
+			A - attribute *
+			E - element **
+			C - class
+			M - comment
+			*/
+			return{
+				 template:'<h1> custom directive </h1>',
+				 restrict:'AMEC',
+				 replace:true
+            }
+		});
+	</script>
+</body>
+</html>	

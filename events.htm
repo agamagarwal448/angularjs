@@ -1,0 +1,60 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>angular events</title>
+<script src="./angular.min.js">
+</script>
+<style type="text/css">
+	p{
+		background-color: red
+	}
+</style>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="mycontroller">
+		<p ng-click="callme()">this is click</p>
+		<p ng-dblclick="callme()">this is dblclcik</p>
+		<p ng-mouseover="callme()">this is mouseover</p>
+		<p ng-mouseout="callme()">this is mouseout</p>
+		<p ng-mouseenter="callme()">this is mouseenterr</p>
+		<p ng-mouseleave="callme()">this is mouseleave</p>
+		<p ng-mousemove="callme()">this is mousemove</p>
+
+		<pre>
+		<input type="text" name="fname" ng-model="fname" ng-change="callme()" >{{fname}}
+
+		<input type="text" name="fname" ng-model="fname" ng-focus="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-blur="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-keyup="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-keydown="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-cut="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-copy="callme()" >
+
+		<input type="text" name="fname" ng-model="fname" ng-paste="callme()" >
+	</pre>
+     </div>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+
+		// function
+		// closure
+		// anonymous function
+		// call back function
+		// self-invoiking function
+
+		app.controller("mycontroller",function($scope){
+			$scope.fname="qshore";
+			$scope.count=0;
+            $scope.callme=function(){
+				console.log($scope.count);
+				$scope.count++;
+			}
+		});
+	</script>
+</body>
+</html>

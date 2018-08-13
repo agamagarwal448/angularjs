@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular js forms</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="CalcController">
+	
+	<p>Enter a number:<input type="number" ng-model="number"/>
+	     <button ng-click="square()">X<sup>2</sup></button>
+	     <p>Result:{{result}}</p>
+	</p>
+
+   </div>
+
+<script type="text/javascript">
+	var app=angular.module("myApp",[]);
+	
+	
+	app.service('qshore',function(MathService){
+		this.square=function(a){
+			return MathService.multiply(a,a);
+		}
+	});
+	app.controller('CalcController',function($scope,qshore){
+		$scope.square=function(){
+			$scope.result=qshore.square($scope.number);
+		}
+	});
+</script>
+</body>
+</html>

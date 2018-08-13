@@ -1,0 +1,31 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>angular events</title>
+<script src="./angular.min.js">
+</script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="studentController">
+		<pre>
+		Enter first name <input type="text" ng-model="student.firstName">
+		Enter last name  <input type="text"  ng-model="student.lastName">
+		 {{student.fullName()}}
+		</pre>
+    </div>
+<script type="text/javascript">
+	     var app=angular.module('myApp',[]);
+	     app.controller('studentController',function($scope){
+		$scope.student={
+			firstName:"qshore",
+		    lastName:"technologies",
+		    fullName:function(){
+			var studentObject;
+			 studentObject=$scope.student;
+			return studentObject.firstName+""+studentObject.lastName;
+		}
+	   };
+	});
+</script>
+</body>
+</html>

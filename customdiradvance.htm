@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DIrectives</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+	<!-- 	<qshore-technologies msg="hellossdfsd" firstname="{{fname}}"></qshore-technologies> -->
+	<div qshore-technologies msg="hellossdfsd" firstname="{{fname}}"></div>
+		{{fname}}
+		<input type="text" name="fname" ng-model="fname">
+	</div>
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('myController', function($scope){
+			$scope.fname = 'qshore';
+		});
+		app.directive('qshoreTechnologies', function(){
+			return {
+				template :`<div>
+					<div> this is div 1 -- {{msg}}</div>
+					<div>this is div 2 -- {{firstname}} </div></div>
+				`,
+				restrict:'AMEC',
+				replace: true,
+				scope : {msg:'@', firstname:'@'}
+			}
+		})
+	</script>
+</body>
+</html>

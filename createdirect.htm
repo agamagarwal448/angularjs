@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DIrectives</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+ <form>
+	<div ng-app="myApp" ng-controller="myController">
+		<pre>
+		<input type="text" name="name" ng-model="name" placeholder="Enter Name">
+
+		<input id="no" type="number" name="age" ng-model="age" ng-change="callMe()">
+
+		<qshore msg="HELLO" firstname={{name}} tech="{{queue}}"></qshore>
+	</pre>
+    </div>
+ </form>
+
+<script type="text/javascript">
+
+	var app=angular.module('myApp',[]);
+	app.controller('myController',function($scope){
+		$scope.name;
+		$scope.age;
+		$scope.callMe=function(){
+		var x=document.getElementById('no').value;
+		if(x<10){
+			$scope.queue='kid'
+		}else if(x<20){
+			$scope.queue="adult";
+		}else if(x<25){
+			$scope.queue="youth"
+		}else if (x<40){
+			$scope.queue="mature"
+		}else if(x>40)
+			$scope.queue="old"
+	   }
+	});
+
+	app.directive("qshore",function(){
+
+		return{
+             template:`<strong> {{msg}} {{firstname}} 
+             you are an {{tech}} </strong>`,
+             restrict  : 'AMEC',
+			 replace : true,
+		     scope:{msg:'@',firstname:'@',tech:'@'},
+		     }
+	});
+	
+</script>
+</body>
+</html>

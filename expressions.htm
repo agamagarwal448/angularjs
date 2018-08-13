@@ -1,0 +1,61 @@
+<DOCTYPE html>
+<html>
+<title>angularjs expressions</title>
+<script src="./angular.min.js">
+</script>
+
+<body>
+	<div ng-app="myApp" ng-controller="myController">
+		<pre> 
+          {{a}}
+          {{b}}
+          {{fname}} {{lname}}
+          <p ng-bind="a"></p>
+
+         <pre> <p ng-bind="fname"></p>
+          <p ng-bind="lname"></p></pre>
+
+          a+b::  {{a+b}}
+          a-b::  {{a-b}}
+          a*b::  {{a*b}}
+          a/b::  {{a/b}}
+          a%b::  {{a%b}}
+
+          2+3::  {{2+3}}
+          2-3::  {{2-3}}
+          2*3::  {{2*3}}
+          2/3::  {{2/3}} 
+          2%3::  {{2%3}}
+	    </pre>
+	   <pre> <p ng-bind="a"></p>
+		<h1 ng-bind="b">asdf</h1></pre>
+
+	    <p ng-bind="a+b"></p>
+	    <p ng-bind="a-b"></p>
+	    <p ng-bind="a*b"></p>
+	    <p ng-bind="a/b"></p>
+	    <p ng-bind="a%b"></p>
+
+	     <p ng-bind="2+3"></p>
+	    <p ng-bind="2-3"></p>
+	    <p ng-bind="2*3"></p>
+	    <p ng-bind="2/3"></p>
+	    <p ng-bind="2%3"></p>
+
+
+
+
+  
+	</div>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+		app.controller('myController',function($scope) {
+			$scope.a=2;
+			$scope.b=3;
+
+			$scope.fname="qshore"
+			$scope.lname="technologies"
+		})
+	</script>
+	</body>
+</html>

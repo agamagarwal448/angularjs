@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>filterscustom</title>
+	<script type="text/javascript" src="./angular.min.js"></script>
+</head>
+<body>
+ <div ng-app="myApp" ng-controller="myctrl">
+ 	<pre>
+ 	<input id='demo' type="text" name="name1" ng-model="name">
+
+ 	{{name|conversion}}
+ </pre>
+</div>
+   <script type="text/javascript">
+ 	var app=angular.module('myApp',[]);
+ 	app.controller('myctrl',function($scope){
+ 		$scope.name;
+ 		
+ 	});
+ 	app.filter('conversion',function(){    
+ 		return function(x){ 
+ 		var str=document.getElementById('demo').value; 
+
+ 		for(var i= 0;i< str.length; i++) {
+            if(str.charAt(i)=='a'){ 
+            	var res="@";
+ 			                       /*convert alphabets into characters using custom filters*/
+ 			 }if(str.charAt(i)=='A'){
+ 			 	var res="A"
+ 			 }
+ 			 return res;
+ 		}
+
+ 		}
+ 	});
+
+ 	</script>
+ </body>
+ </html>

@@ -1,0 +1,49 @@
+<DOCTYPE html>
+<html>
+<title>angularjs</title>
+<script src="./angular.min.js">
+</script>
+
+<body>
+  <div ng-app="myApp" ng-controller="myController">
+		<p ng-if="fname == 'qshore'"> this is IF</p>
+		<p ng-show="fname == 'qshore'"> this is show</p>
+		<p ng-hide="fname == 'qshore'"> this is hide</p>
+
+		{{fruits}}
+		<p ng-bind="fruits"></p>
+		<h ng-repeat="fruit in fruits"> {{fruit}} </h>
+
+		<ol>
+			<li ng-repeat="fruit in fruits">{{fruit}}</li>
+		</ol>
+
+		<table border="1">
+			<tr ng-repeat="fruit in fruits">
+				<td>{{fruit}}</td>
+			</tr>
+		</table>
+<br>
+       <select>
+   	       <option>select</option>
+           <option ng-repeat="fruit in fruits"> {{fruit}} </option>
+       </select>
+
+       <div ng-switch="fname">
+       	  <p ng-switch-when ="qshore">this is qshore</p>
+       	  <p ng-switch-when ="angular">this is angular</p>
+       	  <p ng-switch-when ="tech">this is tech</p>
+       	  <p ng-switch-default>this is default</p>
+       </div>
+   
+      <input type="text" name="fname" ng-model="fname">{{fname}}
+
+	<script type="text/javascript">
+		var app = angular.module('myApp',[]);
+		app.controller('myController',function($scope){
+			$scope.fname='qshore';
+			$scope.fruits=['kiwi','orange','berry'];
+		});
+	</script>
+</body>
+</html>
