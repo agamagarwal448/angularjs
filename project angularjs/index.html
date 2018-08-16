@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>project</title>
+  <style type="text/css">
+  table,th,td{
+    border-collapse: collapse;
+  }
+  li.tech{
+     display: inline;
+     padding: 20px;
+     text-align: center;
+     margin: 5px 10px;
+   }
+  
+   li.pop{
+      display: inline;
+      font-size: 25px;
+      border: 1px solid;
+      background-color:  yellow;
+      padding: 15px;
+      text-align: center;
+      margin: 10px 20px;
+
+    }
+    .tech{
+      text-align: left;
+      font-size: 20px;
+    }
+    .hi{
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body ng-app="myApp" >
+  <div ng-Controller="myController">
+
+    <table border="1px" width="800" height='1500' ">
+      <tr>
+        <td colspan="5" style="background-color: red" height="100">
+           <ul>
+            <li class="tech" style="border: 1px solid;background-color: lightblue;font-size: 20px;">Angular js</li>
+            <li class="tech" style="font-size: 20px;" > Open-source front-end web application </li>
+           </ul>
+         </td>
+       
+        <!--<td>row12</td>
+        <td>row13</td>
+        <td>row14</td>
+        <td>row15</td>-->
+      </tr>
+      <tr>
+        <td colspan="5" height="100">
+          <ul>
+            <li class="pop"><a href="#!home">HOME</a></li>
+            <li class="pop"><a href="#!user">USERS</a></li>
+            <li class="pop"><a href="#!contact">CONTACT</a></li>
+            <li class="pop"><a href="#!about">ABOUT</a></li>
+          </ul>
+        </td>
+       <!-- <td>row22</td>
+        <td>row23</td>
+        <td>row24</td>
+        <td>row25</td>-->
+      </tr>
+      <tr>
+        <td rowspan="5" colspan="5">
+        <ng-view></ng-view>
+        </td>
+        <!--<td>row32</td>
+        <td>row33</td>
+        <td>row34</td>
+        <td>row35</td>-->
+      </tr>
+      <tr>
+       <!-- <td>row41</td>
+        <td>row42</td>
+        <td>row43</td>
+        <td>row44</td>
+        <td>row45</td>-->
+      </tr>
+      <tr>
+        <!--<td>row51</td>
+        <td>row52</td>
+        <td>row53</td>
+        <td>row54</td>
+        <td>row55</td>-->
+      </tr>
+      <tr>
+        <!--<td>row61</td>
+        <td>row62</td>
+        <td>row63</td>
+        <td>row64</td>
+        <td>row65</td>-->
+      </tr>
+      <tr>
+        <!--<td>row71</td>
+        <td>row72</td>
+        <td>row73</td>
+        <td>row74</td>
+        <td>row75</td>-->
+      </tr>
+      <tr >
+        <td colspan="5" height="100" style="background-color:#7DA49F;text-align: center;font-size: 25px">Copyright &copy@angularjs.org</td>
+        <!--<td>row82</td>
+        <td>row83</td>
+        <td>row84</td>
+        <td>row85</td>-->
+      </tr>
+    </table>
+    
+      	 </div>
+<script type="text/javascript" src="./angular.min.js"></script>
+<script type="text/javascript" src="./angular-route.min.js"></script>
+<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./app.controller.js"></script>
+<script type="text/javascript" src="./app.controller1.js"></script>
+
+
+</body>
+</html>

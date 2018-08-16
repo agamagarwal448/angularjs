@@ -1,0 +1,23 @@
+      <table border="1px" width="800" height="1200" style="border-collapse: collapse;">
+         <button ng-click="createUser()" style="margin-left: 710px"> Create User</button>
+            <tr>
+              <th class="tech">Id</th>
+              <th class="tech">name</th>
+              <th class="tech">Age</th>
+              <th class="tech">Email</th>
+              <th class="tech">Password</th>
+              <th class="tech">Actions</th>
+            </tr>
+            <tr ng-repeat="user in users">
+              <td class="hi">{{user.id}}</td>
+              <td class="hi">{{user.fname}}{{user.lname}}</td>
+              <td class="hi">{{user.age}}</td>
+              <td class="hi">{{user.email}}</td>
+               <td class="hi">{{user.password}}</td>
+              <td>
+               <span><a href="#!viewUser/id">view</a></span>
+                <div ng-click="editUser(user.id)">Edit</div>
+                <p ng-click="deleteUser(user.id)">delete</p>
+              </td>
+            </tr>
+      </table>
